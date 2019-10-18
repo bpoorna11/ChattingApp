@@ -83,26 +83,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
         usersRef = FirebaseDatabase.getInstance().getReference().child("Users").child(fromUserID);
 
-        usersRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot)
-            {
-                if (dataSnapshot.hasChild("image"))
-                {
-                    String receiverImage = dataSnapshot.child("image").getValue().toString();
-
-                    Picasso.get().load(receiverImage).placeholder(R.drawable.profile_image).into(messageViewHolder.receiverProfileImage);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
-
 
 
         messageViewHolder.receiverMessageText.setVisibility(View.GONE);
