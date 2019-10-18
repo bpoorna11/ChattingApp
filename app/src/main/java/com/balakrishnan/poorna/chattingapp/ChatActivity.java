@@ -69,11 +69,8 @@ public class ChatActivity extends AppCompatActivity
         RootRef = FirebaseDatabase.getInstance().getReference();
         messageReceiverID = getIntent().getExtras().get("visit_user_id").toString();
         messageReceiverName = getIntent().getExtras().get("visit_user_name").toString();
-      //  messageReceiverImage = getIntent().getExtras().get("visit_image").toString();
         IntializeControllers();
         userName.setText(messageReceiverName);
-      //  Picasso.get().load(messageReceiverImage).placeholder(R.drawable.profile_image).into(userImage);
-
         SendMessageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
@@ -101,7 +98,6 @@ public class ChatActivity extends AppCompatActivity
         userImage = (CircleImageView) findViewById(R.id.custom_profile_image);
 
         SendMessageButton = (ImageButton) findViewById(R.id.send_message_btn);
-       // SendFilesButton = (ImageButton) findViewById(R.id.send_files_btn);
         MessageInputText = (EditText) findViewById(R.id.input_message);
 
         messageAdapter = new MessageAdapter(messagesList);
